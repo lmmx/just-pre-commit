@@ -1,0 +1,1 @@
+# Just pre-commit hooks package
