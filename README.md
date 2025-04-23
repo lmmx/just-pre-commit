@@ -14,3 +14,11 @@ repos:
       - id: ensure-just
         args: ['hello', 'from pre-commit !']
 ```
+
+---
+
+I installed `taplo-cli` with
+
+```
+cargo binstall --install-path crates/
+```

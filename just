@@ -1,1 +1,0 @@
-rust_just-1.40.0.data/scripts/just

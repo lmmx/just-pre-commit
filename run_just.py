@@ -11,4 +11,6 @@ just_path = os.path.join(script_dir, "just")
 
 # Execute the bundled just binary with all passed arguments
 result = subprocess.run([just_path] + sys.argv[1:])
+print(result.stdout)
+print(result.stderr, sys.stderr)
 sys.exit(result.returncode)
