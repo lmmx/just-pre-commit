@@ -1,7 +1,7 @@
 - id: ensure-just
   name: Ensure just command runner is available
   description: Verify Just command runner is properly installed (uses bundled rust-just binary)
-  entry: python3 -c "import sys; raise Exception('\n'.join(sys.argv[1:]))" $(ls) "$@"
+  entry: bash -c "python3 -c 'import subprocess; raise RuntimeError(subprocess.check_output([\"ls\"]).decode())'"
   language: system
   pass_filenames: false
   always_run: true
