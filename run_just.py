@@ -7,7 +7,7 @@ import sys
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Path to the bundled just binary symlink
-just_path = os.path.join(script_dir, "just")
+just_path = os.path.join(script_dir, "bin", "just")
 
 # Execute the bundled just binary with all passed arguments
 result = subprocess.run([just_path] + sys.argv[1:])
