@@ -1,7 +1,7 @@
 - id: ensure-just
   name: Ensure just command runner is available
-  description: Verify Just command runner is properly installed (uses rust-just from PyPI)
-  entry: just-ensure
-  language: python
+  description: Verify Just command runner is properly installed (uses bundled rust-just binary)
+  entry: ./just
+  language: system
   pass_filenames: false
   always_run: true
