@@ -10,7 +10,7 @@
   name: Ensure just command runner is available
   description: Verify Just command runner is properly installed (uses bundled rust-just binary)
   # entry: bash -c "python3 -c 'import subprocess; raise RuntimeError(subprocess.check_output([\"ls\"]).decode())'"
-  entry: bash -c "python3 -c 'import subprocess; raise RuntimeError(subprocess.check_output([\"find\", \"/\", \"-iname\", \"just\"]).decode())'"
+  entry: bash -c "python3 -c 'import subprocess; raise RuntimeError(subprocess.check_output([\"find\", \"/pc/clone\", \"-iname\", \"just\"]).decode())'"
   language: system
   pass_filenames: false
   always_run: true
