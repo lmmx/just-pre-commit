@@ -20,6 +20,7 @@ def main():
     # Path to the vendored wheel file
     wheel_path = (
         script_dir
+        / "vendor"
         / "rust_just-1.40.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
     )
 
