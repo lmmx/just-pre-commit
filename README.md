@@ -13,7 +13,7 @@ and puts the contents of `bin/` on the PATH.
 
 ## Changelog
 
-### v0.5.0
+### v0.5.1
 
 The `bin/` directory contains the executables defined in `refresh_binaries`:
 
