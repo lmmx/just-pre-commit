@@ -1,30 +1,25 @@
 use std::env;
+use std::fs;
 use std::path::PathBuf;
 use std::process::{Command, ExitCode};
 
 fn main() -> ExitCode {
-    // Find the just executable in /pc/clone using find command
-    let output = Command::new("find")
-        .arg("/pc/clone")
-        .arg("-name")
-        .arg("just")
-        .arg("-type")
-        .arg("f")
-        .output();
-        
-    let just_path = match output {
-        Ok(output) if output.status.success() => {
-            let stdout = String::from_utf8_lossy(&output.stdout);
-            let path_str = stdout.lines().next().unwrap_or("");
-            if !path_str.is_empty() {
-                PathBuf::from(path_str)
-            } else {
-                eprintln!("Error: Could not find 'just' executable under /pc/clone");
-                return ExitCode::FAILURE;
-            }
-        },
-        _ => {
-            eprintln!("Error: Failed to search for 'just' executable");
+    // First check if we're on CI (/pc/clone exists)
+    let pc_clone_dir = PathBuf::from("/pc/clone");
+    let in_ci = pc_clone_dir.exists();
+    
+    let just_path = if in_ci {
+        eprintln!("Running in CI environment, searching under /pc/clone");
+        find_just_in_ci()
+    } else {
+        eprintln!("Running locally, searching in pre-commit cache directory");
+        find_just_locally()
+    };
+    
+    let just_path = match just_path {
+        Some(path) => path,
+        None => {
+            eprintln!("Error: Could not find 'just' executable");
             return ExitCode::FAILURE;
         }
     };
@@ -76,4 +71,103 @@ fn main() -> ExitCode {
             ExitCode::FAILURE
         }
     }
+}
+
+// Function to find just in CI environment (/pc/clone)
+fn find_just_in_ci() -> Option<PathBuf> {
+    let output = Command::new("find")
+        .arg("/pc/clone")
+        .arg("-name")
+        .arg("just")
+        .arg("-type")
+        .arg("f")
+        .output()
+        .ok()?;
+        
+    if output.status.success() {
+        let stdout = String::from_utf8_lossy(&output.stdout);
+        let path_str = stdout.lines().next()?;
+        if !path_str.is_empty() {
+            let path = PathBuf::from(path_str);
+            if path.exists() {
+                return Some(path);
+            }
+        }
+    }
+    
+    None
+}
+
+// Function to find just in local pre-commit cache
+fn find_just_locally() -> Option<PathBuf> {
+    let cache_dir = get_cache_dir("pre-commit")?;
+    
+    eprintln!("Looking in cache directory: {}", cache_dir.display());
+    
+    // Try to find just in the cache directory using find
+    if cache_dir.exists() {
+        let output = Command::new("find")
+            .arg(cache_dir)
+            .arg("-name")
+            .arg("just")
+            .arg("-type")
+            .arg("f")
+            .output()
+            .ok()?;
+            
+        if output.status.success() {
+            let stdout = String::from_utf8_lossy(&output.stdout);
+            for path_str in stdout.lines() {
+                if !path_str.is_empty() {
+                    let path = PathBuf::from(path_str);
+                    if path.exists() {
+                        // Verify it's executable
+                        #[cfg(unix)]
+                        {
+                            use std::os::unix::fs::PermissionsExt;
+                            if let Ok(metadata) = fs::metadata(&path) {
+                                let permissions = metadata.permissions();
+                                if permissions.mode() & 0o111 != 0 {
+                                    return Some(path);
+                                }
+                            }
+                        }
+                        
+                        // On Windows or if can't check permissions, just return the path
+                        #[cfg(not(unix))]
+                        {
+                            return Some(path);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    None
+}
+
+// Get the user cache directory for an application
+fn get_cache_dir(app_name: &str) -> Option<PathBuf> {
+    // Get the home directory
+    let home_dir = env::var("HOME").or_else(|_| env::var("USERPROFILE")).ok()?;
+    
+    let mut cache_dir = PathBuf::from(home_dir);
+    
+    // Determine the appropriate cache directory based on the OS
+    if cfg!(target_os = "windows") {
+        cache_dir.push("AppData");
+        cache_dir.push("Local");
+    } else if cfg!(target_os = "macos") {
+        cache_dir.push("Library");
+        cache_dir.push("Caches");
+    } else {
+        // Linux/Unix
+        cache_dir.push(".cache");
+    }
+    
+    // Append the application name
+    cache_dir.push(app_name);
+    
+    Some(cache_dir)
 }
