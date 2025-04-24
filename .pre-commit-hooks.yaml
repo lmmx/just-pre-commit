@@ -36,3 +36,12 @@
 #   language: script
 #   pass_filenames: false
 #   always_run: true
+
+- id: ensure-cargo-rs
+  name: cargo
+  description: Provides cargo fmt to the rest of the hooks
+  entry: pre_commit_cargo
+  language: rust
+  types: [rust]
+  pass_filenames: false
+  always_run: true

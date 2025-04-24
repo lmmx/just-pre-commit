@@ -1,0 +1,11 @@
+[package]
+name = "pre-commit-cargo-wrapper"
+version = "0.1.0"
+edition = "2024"
+authors = ["Louis Maddox <louismmx@gmail.com>"]
+
+[[bin]]
+name = "pre_commit_cargo"
+path = "run_cargo.rs"
+
+[dependencies]
