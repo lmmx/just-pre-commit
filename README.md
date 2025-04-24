@@ -18,10 +18,11 @@ and puts the contents of `bin/` on the PATH.
 The `bin/` directory contains the executables defined in `refresh_binaries`:
 
 ```
-2.8M    conventional_commits_linter
-4.1M    just
-8.4M    taplo
-2.3M    whitespace-format
+5.8M	cargo-machete
+2.8M	conventional_commits_linter
+4.1M	just
+8.4M	taplo
+2.3M	whitespace-format
 ```
 
 You may also (but less likely) want the following hooks from this repo:
