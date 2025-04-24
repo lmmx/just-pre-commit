@@ -8,11 +8,12 @@ Justfile helper pre-commit hook which bundles your executables in a portable `bi
 > project, who then don't need to bother with installing pre-commit linters for an initial commit,
 > or someone making edits purely via GitHub web UI etc.
 
-
-## v0.5.0
-
 Provides the `run-just-rust` hook which uses a Rust binary to get the bundled `just` executable,
 and puts the contents of `bin/` on the PATH.
+
+## Changelog
+
+### v0.5.0
 
 The `bin/` directory contains the executables defined in `refresh_binaries`:
 
