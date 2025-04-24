@@ -10,7 +10,7 @@
   name: Ensure just command runner is available
   description: Verify Just command runner is properly installed (uses bundled rust-just binary)
   # Print the path to the just command
-  entry: bash -c "just=$(python3 -c 'import pathlib,sys;p=next(pathlib.Path('/pc/clone').rglob('just'));print(p)'); just $@"
+  entry: bash -c 'jx=$(python3 -c "import pathlib,sys;p=next(pathlib.Path(\"/pc/clone\").rglob(\"just\"));print(p)"); $jx $@'
   language: system
   pass_filenames: false
   always_run: true
