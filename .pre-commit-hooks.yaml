@@ -9,7 +9,6 @@
 - id: ensure-just-system
   name: Ensure just command runner is available
   description: Verify Just command runner is properly installed (uses bundled rust-just binary)
-  # Print the path to the just command
   entry: |
     bash -c '
       jx=$(python3 -c "import pathlib,sys;p=next(pathlib.Path(\"/pc/clone\").rglob(\"just\"));print(p)");
@@ -18,6 +17,15 @@
       $jx "$@";
     '
   language: system
+  pass_filenames: false
+  always_run: true
+
+- id: ensure-just-cargo
+  name: Ensure cargo is available
+  description: Verify Cargo can be found
+  entry: cargo -V
+  language: system
+  types: [rust]
   pass_filenames: false
   always_run: true
 
