@@ -12,8 +12,9 @@
   # Print the path to the just command
   entry: bash -c '
     jx=$(python3 -c "import pathlib,sys;p=next(pathlib.Path(\"/pc/clone\").rglob(\"just\"));print(p)");
-    export PATH="$(dirname "$jx"):$PATH";
-    $jx $@
+    bindir=$(dirname "$jx");
+    export PATH="$bindir:$PATH";
+    $jx "$@";
   '
   language: system
   pass_filenames: false
