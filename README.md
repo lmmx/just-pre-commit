@@ -6,9 +6,7 @@ Justfile helper pre-commit hook which bundles your executables in a portable `bi
 > project:x
 
 
-## v0.4.1
-
-First known good state with both a Python script and a Rust program option
+## v0.4.0
 
 Provides the `run-just-rust` hook which uses a Rust binary to get the bundled `just` executable,
 and puts the contents of `bin/` on the PATH.

@@ -9,7 +9,7 @@
 
 - id: run-just-script
   name: Run just command (via Python)
-  description: Run bundled just binary, a script has internet access
+  description: Run bundled just binary
   entry: run_just.py
   language: script
   pass_filenames: false
