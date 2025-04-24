@@ -1,17 +1,17 @@
-- id: run-just-script
-  name: Run just command (via Python)
-  description: Run bundled just binary, a script has internet access
-  entry: run_just.py
-  language: script
-  pass_filenames: false
-  always_run: true
-
 - id: run-just-rust
   name: Run just command (via Rust)
   description: Run bundled just binary, also provides Rust toolchain/cargo for use
   entry: pre_commit_just
   language: rust
   types: [rust]
+  pass_filenames: false
+  always_run: true
+
+- id: run-just-script
+  name: Run just command (via Python)
+  description: Run bundled just binary, a script has internet access
+  entry: run_just.py
+  language: script
   pass_filenames: false
   always_run: true
 
@@ -23,17 +23,3 @@
   types: [rust]
   pass_filenames: false
   always_run: true
-
-# - id: ensure-just-system
-#   name: Ensure just command runner is available
-#   description: Verify Just command runner is properly installed (uses bundled rust-just binary)
-#   entry: |
-#     bash -c '
-#       jx=$(python3 -c "import pathlib,sys;p=next(pathlib.Path(\"/pc/clone\").rglob(\"just\"));print(p)");
-#       bindir=$(dirname "$jx");
-#       export PATH="$bindir:$PATH";
-#       $jx "$@";
-#     '
-#   language: system
-#   pass_filenames: false
-#   always_run: true

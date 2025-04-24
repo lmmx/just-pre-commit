@@ -1,33 +1,32 @@
 # just-pre-commit
 
-## v0.2.1
+Justfile helper pre-commit hook which bundles your executables in a portable `bin/` directory.
 
-Known good, uses Python script to execute bundled just binary
+> **Note:** intended primarily for use with pre-commit CI but may be useful for newcomers to a
+> project:x
 
-```
-fail_fast: true
 
-repos:
-  - repo: https://github.com/lmmx/just-pre-commit
-    rev: v0.2.1
-    hooks:
-      - id: ensure-just
-        args: ['hello', 'from pre-commit !']
-```
+## v0.4.1
 
----
+First known good state with both a Python script and a Rust program option
 
-I installed `taplo-cli` with
+Provides the `run-just-rust` hook which uses a Rust binary to get the bundled `just` executable,
+and puts the contents of `bin/` on the PATH.
+
+The `bin/` directory contains the executables defined in `refresh_binaries`:
 
 ```
-cargo binstall --install-path crates/
+23M     cargo-nextest
+2.8M    conventional_commits_linter
+4.1M    just
+8.4M    taplo
+2.3M    whitespace-format
 ```
 
-## v0.3.0
+You may also (but less likely) want the following hooks from this repo:
 
-This time we got `just`, args will run on your repo's Justfile (no other things available)
+- `run-just-script` uses a Python script to get the bundled `just` executable (will not provide Rust
+  toolchain e.g. Cargo), and puts the contents of `bin/` on the PATH
 
-Choose from
-
-- ensure-just-system (uses the "system" language)
-- ensure-just-script (uses the "script" language)
+- `verify-cargo-version` can be used to either verify Cargo version or more importantly to provide
+  Rust toolchain e.g. Cargo
