@@ -5,7 +5,9 @@ edition = "2024"
 authors = ["Louis Maddox <louismmx@gmail.com>"]
 
 [[bin]]
-name = "pre_commit_cargo"
-path = "run_cargo.rs"
+name = "pre_commit_just"
+path = "run_just.rs"
+# name = "pre_commit_cargo"
+# path = "run_cargo.rs"
 
 [dependencies]

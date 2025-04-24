@@ -1,41 +1,19 @@
-- id: ensure-just-script
-  name: Ensure just command runner is available
-  description: Verify Just command runner is properly installed (uses bundled rust-just binary)
+- id: run-just-script
+  name: Run just command
+  description: Run bundled just binary
   entry: run_just.py
   language: script
   pass_filenames: false
   always_run: true
 
-- id: ensure-just-system
-  name: Ensure just command runner is available
-  description: Verify Just command runner is properly installed (uses bundled rust-just binary)
-  entry: |
-    bash -c '
-      jx=$(python3 -c "import pathlib,sys;p=next(pathlib.Path(\"/pc/clone\").rglob(\"just\"));print(p)");
-      bindir=$(dirname "$jx");
-      export PATH="$bindir:$PATH";
-      $jx "$@";
-    '
-  language: system
-  pass_filenames: false
-  always_run: true
-
-- id: ensure-just-cargo
-  name: Ensure cargo is available
-  description: Verify Cargo can be found
+- id: verify-cargo-version
+  name: Check cargo is available
+  description: Verify Cargo and run with version flag
   entry: cargo -V
   language: system
   types: [rust]
   pass_filenames: false
   always_run: true
-
-# - id: ensure-just
-#   name: Ensure just command runner is available
-#   description: Verify Just command runner is properly installed (uses bundled rust-just binary)
-#   entry: run_just.py
-#   language: script
-#   pass_filenames: false
-#   always_run: true
 
 - id: ensure-cargo-rs
   name: cargo
@@ -45,3 +23,17 @@
   types: [rust]
   pass_filenames: false
   always_run: true
+
+# - id: ensure-just-system
+#   name: Ensure just command runner is available
+#   description: Verify Just command runner is properly installed (uses bundled rust-just binary)
+#   entry: |
+#     bash -c '
+#       jx=$(python3 -c "import pathlib,sys;p=next(pathlib.Path(\"/pc/clone\").rglob(\"just\"));print(p)");
+#       bindir=$(dirname "$jx");
+#       export PATH="$bindir:$PATH";
+#       $jx "$@";
+#     '
+#   language: system
+#   pass_filenames: false
+#   always_run: true
