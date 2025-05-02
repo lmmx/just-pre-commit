@@ -1,5 +1,5 @@
 - id: run-just-rust
-  name: Run just
+  name: just
   description: Run bundled just binary, also provides Rust toolchain/cargo for use
   entry: pre_commit_just
   language: rust
@@ -8,7 +8,7 @@
   always_run: true
 
 - id: run-just-script
-  name: Run just
+  name: just
   description: Run bundled just binary
   entry: run_just.py
   language: script
@@ -16,7 +16,7 @@
   always_run: true
 
 - id: verify-cargo-version
-  name: Check cargo
+  name: cargo version
   description: Verify Cargo and run with version flag
   entry: cargo -V
   language: system
