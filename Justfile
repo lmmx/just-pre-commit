@@ -23,12 +23,12 @@ fix-eof-ws mode="":
 
 code-quality:
     taplo lint
-    taplo format --check
+    taplo format --check $(fd -H -E ".git/")
     just fix-eof-ws check
     cargo fmt --check --all
 
 code-quality-fix:
     taplo lint
-    taplo format
+    taplo format $(fd -H -E ".git/")
     just fix-eof-ws
     cargo fmt --all
