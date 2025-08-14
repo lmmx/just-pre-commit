@@ -13,20 +13,23 @@ and puts the contents of `bin/` on the PATH.
 
 ## Changelog
 
-### v0.5.7
+### v0.5.8
 
-`ty` was added to the toolchain in `bin/`
+Binaries were compressed with `upx --best` (and tested with `upx -t`)
 
 ```
-5.8M	cargo-machete
-2.9M	conventional_commits_linter
-3.8M	fd
-4.1M	just
-34M	    ruff
-12M	    taplo
-20M	    ty
-2.3M	whitespace-format
+1.9M	cargo-machete
+1.1M	conventional_commits_linter
+1.3M	fd
+1.4M	just
+11M	ruff
+4.1M	taplo
+7.1M	ty
+768K	whitespace-format
 ```
+
+Total size: 28M
+
 
 ### v0.5.6
 

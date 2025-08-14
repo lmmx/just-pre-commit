@@ -36,6 +36,8 @@ code-quality-fix:
 [working-directory: 'bin']
 changelog:
     du -h *
+    printf "Total size: "
+    du -h .
 
 tag-and-push *flags="":
     #!/usr/bin/env sh
