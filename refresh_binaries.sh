@@ -5,6 +5,13 @@ tools=(
   taplo-cli
   whitespace-format
 )
+uv_tools=(
+  ruff
+  ty
+)
 
 cargo binstall "${tools[@]}" -y --secure --install-path bin/ > logs/.install-logs.txt
-uv tool install ruff@latest && cp $(which ruff) bin/
+
+for tool in "${uv_tools[@]}"; do
+  uv tool install "$tool@latest" && cp $(which "$tool") bin/
+done

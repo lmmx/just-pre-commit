@@ -1,17 +1,17 @@
+ INFO resolve: Resolving package: 'cargo-machete'
+ INFO resolve: Resolving package: 'conventional_commits_linter'
+ INFO resolve: Resolving package: 'taplo-cli'
  INFO resolve: Resolving package: 'fd-find'
  INFO resolve: Resolving package: 'whitespace-format'
- INFO resolve: Resolving package: 'taplo-cli'
- INFO resolve: Resolving package: 'conventional_commits_linter'
- INFO resolve: Resolving package: 'cargo-machete'
  WARN The package cargo-machete v0.8.0 (x86_64-unknown-linux-musl) has been downloaded from github.com
  INFO This will install the following binaries:
  INFO   - cargo-machete => bin/cargo-machete
- INFO resolve: Verified signature for package 'taplo-cli-0.10.0-x86_64-unknown-linux-gnu': timestamp:1751189379	file:taplo-cli-0.10.0-x86_64-unknown-linux-gnu.tar.gz	hashed
- INFO resolve: Verified signature for package 'fd-find-10.2.0-x86_64-unknown-linux-gnu': timestamp:1725766804	file:fd-find-10.2.0-x86_64-unknown-linux-gnu.tar.gz	hashed
  INFO resolve: Verified signature for package 'conventional_commits_linter-0.15.0-x86_64-unknown-linux-gnu': timestamp:1751470298	file:conventional_commits_linter-0.15.0-x86_64-unknown-linux-gnu.tar.gz	hashed
  WARN The package conventional_commits_linter v0.15.0 (x86_64-unknown-linux-gnu) has been downloaded from third-party source QuickInstall
  INFO This will install the following binaries:
  INFO   - conventional_commits_linter => bin/conventional_commits_linter
+ INFO resolve: Verified signature for package 'taplo-cli-0.10.0-x86_64-unknown-linux-gnu': timestamp:1751189379	file:taplo-cli-0.10.0-x86_64-unknown-linux-gnu.tar.gz	hashed
+ INFO resolve: Verified signature for package 'fd-find-10.2.0-x86_64-unknown-linux-gnu': timestamp:1725766804	file:fd-find-10.2.0-x86_64-unknown-linux-gnu.tar.gz	hashed
  WARN The package fd-find v10.2.0 (x86_64-unknown-linux-gnu) has been downloaded from third-party source QuickInstall
  INFO This will install the following binaries:
  INFO   - fd => bin/fd
@@ -26,4 +26,4 @@
  INFO Installing binaries...
  INFO Installing binaries...
  INFO Installing binaries...
- INFO Done in 4.047760336s
+ INFO Done in 3.753570638s
