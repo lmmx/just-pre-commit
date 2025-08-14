@@ -9,6 +9,7 @@ uv_tools=(
   ruff
   ty
   uv
+  flake8
 )
 
 cargo binstall "${tools[@]}" -y --secure --install-path bin/ > logs/.install-logs.txt

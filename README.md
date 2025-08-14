@@ -13,6 +13,25 @@ and puts the contents of `bin/` on the PATH.
 
 ## Changelog
 
+### v0.6.0
+
+Added flake8 (very tiny)
+
+```
+1.9M	cargo-machete
+1.1M	conventional_commits_linter
+1.3M	fd
+12K 	flake8
+1.4M	just
+11M 	ruff
+4.1M	taplo
+7.2M	ty
+14M 	uv
+768K	whitespace-format
+```
+
+Total size: 42M
+
 ### v0.5.9
 
 `uv` was added to the toolchain
