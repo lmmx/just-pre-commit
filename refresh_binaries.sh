@@ -15,3 +15,4 @@ cargo binstall "${tools[@]}" -y --secure --install-path bin/ > logs/.install-log
 for tool in "${uv_tools[@]}"; do
   uv tool install "$tool@latest" && cp $(which "$tool") bin/
 done
+./compress_binaries.sh
