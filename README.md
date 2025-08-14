@@ -13,6 +13,20 @@ and puts the contents of `bin/` on the PATH.
 
 ## Changelog
 
+### v0.5.6
+
+`ruff` was added to the toolchain in `bin/`
+
+```
+5.8M	cargo-machete
+2.9M	conventional_commits_linter
+3.8M	fd
+4.1M	just
+34M 	ruff
+12M 	taplo
+2.3M	whitespace-format
+```
+
 ### v0.5.2
 
 The `bin/` directory contains the executables defined in `refresh_binaries`:
