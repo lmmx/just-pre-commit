@@ -7,3 +7,4 @@ tools=(
 )
 
 cargo binstall "${tools[@]}" -y --secure --install-path bin/ > logs/.install-logs.txt
+uv tool install ruff@latest && cp $(which ruff) bin/
