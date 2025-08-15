@@ -33,6 +33,10 @@ code-quality-fix:
     just fix-eof-ws
     cargo fmt --all
 
+renew:
+    #!/usr/bin/env sh
+    ./refresh_binaries.sh
+
 [working-directory: 'bin']
 changelog:
     du -h *
