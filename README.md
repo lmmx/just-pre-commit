@@ -13,6 +13,25 @@ and puts the contents of `bin/` on the PATH.
 
 ## Changelog
 
+### v0.6.2
+
+Added **echo-comment**
+
+```
+1.9M	cargo-machete
+1.1M	conventional_commits_linter
+1.3M	fd
+1.4M	just
+5.5M	pyrefly
+11M 	ruff
+4.1M	taplo
+7.2M	ty
+14M 	uv
+768K	whitespace-format
+```
+
+Total size: 47M
+
 ### v0.6.1
 
 Removed flake8 and added **pyrefly**

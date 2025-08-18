@@ -4,6 +4,7 @@ tools=(
   fd-find
   taplo-cli
   whitespace-format
+  echo-comment
 )
 uv_tools=(
   ruff
