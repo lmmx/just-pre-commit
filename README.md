@@ -15,11 +15,13 @@ and puts the contents of `bin/` on the PATH.
 
 ### v0.6.2
 
-Added **echo-comment**
+Added **echo-comment** and **comment-echo** (substitution bash interpreters: [repo](https://github.com/lmmx/echo-comment))
 
 ```
 1.9M	cargo-machete
+192K	comment-echo
 1.1M	conventional_commits_linter
+192K	echo-comment
 1.3M	fd
 1.4M	just
 5.5M	pyrefly
