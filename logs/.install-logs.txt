@@ -1,8 +1,8 @@
  INFO resolve: Resolving package: 'conventional_commits_linter'
- INFO resolve: Resolving package: 'whitespace-format'
  INFO resolve: Resolving package: 'cargo-machete'
- INFO resolve: Resolving package: 'taplo-cli'
  INFO resolve: Resolving package: 'fd-find'
+ INFO resolve: Resolving package: 'whitespace-format'
+ INFO resolve: Resolving package: 'taplo-cli'
  INFO resolve: Resolving package: 'echo-comment'
  WARN The package cargo-machete v0.9.1 (x86_64-unknown-linux-musl) has been downloaded from github.com
  INFO This will install the following binaries:
@@ -28,4 +28,4 @@
  INFO Installing binaries...
  INFO Cargo finished successfully
  INFO Cargo finished successfully
- INFO Done in 3.288742614s
+ INFO Done in 3.674147625s

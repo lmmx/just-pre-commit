@@ -7,8 +7,6 @@ tools=(
   echo-comment
 )
 uv_tools=(
-  ruff
-  ty
   pyrefly
 )
 
@@ -34,10 +32,22 @@ done
 temp_dir=$(mktemp -d)
 trap "rm -rf $temp_dir" EXIT
 
+# uv
+
 git clone --depth 1 https://github.com/astral-sh/uv.git "$temp_dir/uv"
 cargo build --manifest-path "$temp_dir/uv/Cargo.toml" --profile minimal-size -p uv
 
 cp "$temp_dir/uv/target/minimal-size/uv" bin/
 strip bin/uv || true
+
+# ruff and ty
+
+git clone --depth 1 --branch minimal-size-profile https://github.com/lmmx/ruff.git "$temp_dir/ruff"
+cargo build --manifest-path "$temp_dir/ruff/Cargo.toml" --profile minimal-size -p ty -p ruff
+
+for pkg in ty ruff; do
+  cp "$temp_dir/ruff/target/minimal-size/$pkg" bin/
+  strip bin/$pkg || true
+done
 
 ./compress_binaries.sh
