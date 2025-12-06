@@ -9,7 +9,6 @@ tools=(
 uv_tools=(
   ruff
   ty
-  uv
   pyrefly
 )
 
@@ -30,5 +29,15 @@ for tool in "${uv_tools[@]}"; do
     exit 1
   fi
 done
+
+# Build in a temp directory, cleaned up automatically
+temp_dir=$(mktemp -d)
+trap "rm -rf $temp_dir" EXIT
+
+git clone --depth 1 https://github.com/astral-sh/uv.git "$temp_dir/uv"
+cargo build --manifest-path "$temp_dir/uv/Cargo.toml" --profile minimal-size -p uv
+
+cp "$temp_dir/uv/target/minimal-size/uv" bin/
+strip bin/uv || true
 
 ./compress_binaries.sh
