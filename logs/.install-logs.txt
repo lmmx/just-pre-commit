@@ -1,0 +1,31 @@
+ INFO resolve: Resolving package: 'conventional_commits_linter'
+ INFO resolve: Resolving package: 'whitespace-format'
+ INFO resolve: Resolving package: 'cargo-machete'
+ INFO resolve: Resolving package: 'fd-find'
+ INFO resolve: Resolving package: 'echo-comment'
+ INFO resolve: Resolving package: 'taplo-cli'
+ WARN The package cargo-machete v0.9.1 (x86_64-unknown-linux-musl) has been downloaded from github.com
+ INFO This will install the following binaries:
+ INFO   - cargo-machete => bin/cargo-machete
+ WARN resolve: Error while downloading and extracting from fetcher QuickInstall: Failed to download from remote: could not GET https://github.com/cargo-bins/cargo-quickinstall/releases/download/taplo-cli-0.10.0/taplo-cli-0.10.0-x86_64-unknown-linux-gnu.tar.gz: HTTP status client error (404 Not Found) for url (https://github.com/cargo-bins/cargo-quickinstall/releases/download/taplo-cli-0.10.0/taplo-cli-0.10.0-x86_64-unknown-linux-gnu.tar.gz)
+ INFO resolve: Verified signature for package 'fd-find-10.3.0-x86_64-unknown-linux-gnu': timestamp:1756233649	file:fd-find-10.3.0-x86_64-unknown-linux-gnu.tar.gz	hashed
+ WARN resolve: Error while downloading and extracting from fetcher QuickInstall: Failed to download from remote: could not GET https://github.com/cargo-bins/cargo-quickinstall/releases/download/taplo-cli-0.10.0/taplo-cli-0.10.0-x86_64-unknown-linux-musl.tar.gz: HTTP status client error (404 Not Found) for url (https://github.com/cargo-bins/cargo-quickinstall/releases/download/taplo-cli-0.10.0/taplo-cli-0.10.0-x86_64-unknown-linux-musl.tar.gz)
+ WARN The package conventional_commits_linter v0.17.0 will be installed from source (with cargo)
+ WARN The package echo-comment v0.2.0 (x86_64-unknown-linux-gnu) has been downloaded from github.com
+ INFO This will install the following binaries:
+ INFO   - comment-echo => bin/comment-echo
+ INFO   - echo-comment => bin/echo-comment
+ WARN The package fd-find v10.3.0 (x86_64-unknown-linux-gnu) has been downloaded from third-party source QuickInstall
+ INFO This will install the following binaries:
+ INFO   - fd => bin/fd
+ WARN The package taplo-cli v0.10.0 will be installed from source (with cargo)
+ WARN The package whitespace-format v0.1.9 (x86_64-unknown-linux-gnu) has been downloaded from github.com
+ INFO This will install the following binaries:
+ INFO   - whitespace-format => bin/whitespace-format
+ INFO Installing binaries...
+ INFO Installing binaries...
+ INFO Installing binaries...
+ INFO Installing binaries...
+ INFO Cargo finished successfully
+ INFO Cargo finished successfully
+ INFO Done in 18.080559764s
