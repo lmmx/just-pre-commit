@@ -13,6 +13,26 @@ and puts the contents of `bin/` on the PATH.
 
 ## Changelog
 
+### v0.6.4
+
+Built uv with `minimal-size` profile to make it 2x smaller
+
+```
+1.9M	cargo-machete
+300K	comment-echo
+1.1M	conventional_commits_linter
+300K	echo-comment
+1.3M	fd
+1.4M	just
+8.8M	pyrefly
+11M	ruff
+4.1M	taplo
+8.1M	ty
+7.8M	uv
+776K	whitespace-format
+Total size: 47M	.
+```
+
 ### v0.6.2
 
 Added **echo-comment** and **comment-echo** (substitution bash interpreters: [repo](https://github.com/lmmx/echo-comment))
