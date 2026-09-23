@@ -13,6 +13,26 @@ and puts the contents of `bin/` on the PATH.
 
 ## Changelog
 
+### v0.6.6
+
+Refreshed (uv was a bit out of date)
+
+```
+2.0M	cargo-machete
+300K	comment-echo
+1.1M	conventional_commits_linter
+300K	echo-comment
+1.2M	fd
+1.4M	just
+13M	pyrefly
+7.1M	ruff
+4.1M	taplo
+6.1M	ty
+9.6M	uv
+776K	whitespace-format
+Total size: 47M	.
+```
+
 ### v0.6.5
 
 Built ruff/ty with `minimal-size` profile to make it 35%/24% smaller
